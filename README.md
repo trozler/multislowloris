@@ -1,4 +1,12 @@
-# slowloris.py - Simple slowloris in Python
+# multislowloris.py - A multithreaded simple slowloris in Python
+
+This implementation extends the simple slowloris attack created by Gokberk Yaltirakli and his collaborators, by implmenting a multithreded slowloris DoS attack.
+
+This code was written for purpose of stress testing web servers only. 
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
 
 ## What is Slowloris?
 Slowloris is basically an HTTP Denial of Service attack that affects threaded servers. It works like this:
