@@ -1,6 +1,6 @@
 # multislowloris.py - A multithreaded simple slowloris in Python
 
-This implementation extends the simple slowloris attack created by Gokberk Yaltirakli and his collaborators, by implmenting a multithreded slowloris DoS attack.
+This implementation extends the simple slowloris attack created by Gokberk Yaltirakli ([@gkbrk]) and his collaborators, by implmenting a multithreded slowloris DoS attack.
 
 This code was written for purpose of stress testing web servers only. 
 
@@ -34,7 +34,7 @@ If you want to clone using git instead of pip, here's how you do it.
 
 ### SOCKS5 proxy support
 
-However, if you plan on using the `-x` option in order to use a SOCKS5 proxy for connecting instead of a direct connection over your IP address, you will need to install the `PySocks` library (or any other implementation of the `socks` library) as well. [`PySocks`](https://github.com/Anorov/PySocks) is a fork from [`SocksiPy`](http://socksipy.sourceforge.net/) by GitHub user @Anorov and can easily be installed by adding `PySocks` to the `pip` command above or running it again like so:
+However, if you plan on using the `-x` option in order to use a SOCKS5 proxy for connecting instead of a direct connection over your IP address, you will need to install the `PySocks` library (or any other implementation of the `socks` library) as well. [`PySocks`](https://github.com/Anorov/PySocks) is a fork from [`SocksiPy`](http://socksipy.sourceforge.net/) by GitHub user [@Anorov] and can easily be installed by adding `PySocks` to the `pip` command above or running it again like so:
 
 * `sudo pip3 install PySocks`
 
@@ -45,3 +45,6 @@ It is possible to modify the behaviour of slowloris with command-line arguments.
 
 ## License
 The code is licensed under the MIT License.
+
+[@gkbrk]:https://github.com/gkbrk
+[@Anorov]:https://github.com/Anorov/PySocks
