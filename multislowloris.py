@@ -5,6 +5,8 @@ import random
 import socket
 import sys
 import time
+import multiprocessing
+
 
 parser = argparse.ArgumentParser(
     description="Slowloris, low bandwidth stress test tool for websites"
@@ -37,8 +39,10 @@ parser.add_argument(
     action="store_true",
     help="Use a SOCKS5 proxy for connecting",
 )
-parser.add_argument("--proxy-host", default="127.0.0.1", help="SOCKS5 proxy host")
-parser.add_argument("--proxy-port", default="8080", help="SOCKS5 proxy port", type=int)
+parser.add_argument("--proxy-host", default="127.0.0.1",
+                    help="SOCKS5 proxy host")
+parser.add_argument("--proxy-port", default="8080",
+                    help="SOCKS5 proxy port", type=int)
 parser.add_argument(
     "--https", dest="https", action="store_true", help="Use HTTPS for the requests"
 )
@@ -71,7 +75,8 @@ if args.useproxy:
     try:
         import socks
 
-        socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, args.proxy_host, args.proxy_port)
+        socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5,
+                              args.proxy_host, args.proxy_port)
         socket.socket = socks.socksocket
         logging.info("Using SOCKS5 proxy for connecting...")
     except ImportError:
@@ -159,12 +164,14 @@ def main():
     while True:
         try:
             logging.info(
-                "Sending keep-alive headers... Socket count: %s", len(list_of_sockets)
+                "Sending keep-alive headers... Socket count: %s", len(
+                    list_of_sockets)
             )
             for s in list(list_of_sockets):
                 try:
                     s.send(
-                        "X-a: {}\r\n".format(random.randint(1, 5000)).encode("utf-8")
+                        "X-a: {}\r\n".format(random.randint(1,
+                                                            5000)).encode("utf-8")
                     )
                 except socket.error:
                     list_of_sockets.remove(s)
